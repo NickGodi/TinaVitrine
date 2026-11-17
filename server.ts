@@ -4,7 +4,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import express from 'express';
 import type { Request, Response } from 'express';
-import { createServer as createViteServer } from 'vite';
 import {
   createInitialDb,
   databaseRequestContext,
@@ -1570,7 +1569,8 @@ export async function createApp() {
   // ---------------------------------------------------------------------------
   // VITE DEV MIDDLEWARE / PRODUCTION STATIC FILES
   // ---------------------------------------------------------------------------
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production' && process.env.VERCEL !== '1') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
