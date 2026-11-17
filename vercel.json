@@ -3,18 +3,22 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
-    "api/[...path].ts": {
+    "api/dispatch.ts": {
       "maxDuration": 30
     }
   },
   "rewrites": [
     {
       "source": "/auth/facebook/callback",
-      "destination": "/api/auth/facebook/callback"
+      "destination": "/api/dispatch?__tvroute=/auth/facebook/callback"
     },
     {
       "source": "/auth/facebook/callback.js",
-      "destination": "/api/auth/facebook/callback.js"
+      "destination": "/api/dispatch?__tvroute=/api/auth/facebook/callback.js"
+    },
+    {
+      "source": "/api/:route*",
+      "destination": "/api/dispatch?__tvroute=/api/:route*"
     }
   ]
 }
