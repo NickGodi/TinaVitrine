@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/[...path].ts": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/auth/facebook/callback",
+      "destination": "/api/auth/facebook/callback"
+    },
+    {
+      "source": "/auth/facebook/callback.js",
+      "destination": "/api/auth/facebook/callback.js"
+    }
+  ]
+}

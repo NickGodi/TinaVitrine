@@ -1,0 +1,5 @@
+{
+  "name": "TinaVitrine",
+  "description": "Plataforma inteligente de automação de postagens no Facebook e vitrine de e-commerce com pesquisa de produtos e preços na web via Tavily, gestão de cargos e gateways de pagamento.",
+  "requestFramePermissions": []
+}
